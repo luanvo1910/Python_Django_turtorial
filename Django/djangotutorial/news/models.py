@@ -1,6 +1,6 @@
 from django.db import models
 from tinymce.models import HTMLField
-
+from .helpers import *
 
 class Category(models.Model):
     LAYOUT_CHOICE = (
@@ -20,7 +20,7 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
-    
+
 class Article(models.Model):
     STATUS_CHOICE = (
         ('draft', 'Draft'),
@@ -32,8 +32,9 @@ class Article(models.Model):
     special = models.BooleanField(default=False)
     public_date = models.DateTimeField()
     content = HTMLField()
-    image = models.ImageField(upload_to='news/images/article/')
+    image = models.ImageField(upload_to=get_file_path)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
+    

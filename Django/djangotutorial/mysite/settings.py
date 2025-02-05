@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'news.apps.NewsConfig',
-    'tinymce'
+    'tinymce',
+    'django_cleanup.apps.CleanupConfig'
 ]
 
 MIDDLEWARE = [
