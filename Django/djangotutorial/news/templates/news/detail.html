@@ -1,0 +1,17 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/css/detail.css' %}">
+
+<a href="/..">Home</a>
+{% if article %}
+    <h1> {{article.name}} </h1>
+    <div> {{ article.content|safe }} </div>
+    <div >
+        {% if article.image %}
+            <img src="{{ article.image.url }}" alt="{{ article.name }}" class="article-image">
+        {% else %}
+            <p>No image available.</p>
+        {% endif %}
+    </div>
+{% else %}
+    <p>No article are available.</p>
+{% endif %}
